@@ -195,12 +195,109 @@
 .skill-tag.devops  { background:#f3e8ff; color:#7e22ce; border-color:#d8b4fe; }
 .skill-tag.dimmed  { opacity:.15; transform:scale(0.9); }
 
-.resume-wrap { transition:opacity .3s ease, box-shadow .3s ease, transform .3s ease; }
-.resume-wrap.skill-highlight {
-  box-shadow:0 0 0 2.5px #1a56db, 0 8px 28px rgba(2,6,23,.14);
-  transform:translateY(-2px);
+/* ===== VERTICAL TIMELINE ===== */
+.tl-legend {
+  display:flex; flex-wrap:wrap; gap:16px;
+  margin-bottom:24px; font-size:13px;
+  font-family:'Poppins',sans-serif; font-weight:600; color:#374151;
 }
-.resume-wrap.skill-dim { opacity:.3; }
+.tl-legend-dot {
+  display:inline-block; width:12px; height:12px;
+  border-radius:50%; margin-right:6px; vertical-align:middle;
+}
+
+.timeline-container {
+  position:relative;
+  padding-left:40px;
+}
+.timeline-container::before {
+  content:'';
+  position:absolute; left:16px; top:0; bottom:0;
+  width:3px;
+  background:linear-gradient(180deg,#690bec 0%,#f59e0b 50%,#690bec 100%);
+  border-radius:3px;
+}
+
+.tl-item {
+  position:relative;
+  margin-bottom:28px;
+  opacity:0;
+  transform:translateX(30px);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.tl-item:last-child { margin-bottom:0; }
+.tl-item.tl-visible { opacity:1; transform:translateX(0); }
+
+.tl-dot {
+  position:absolute;
+  left:-31px; top:22px;
+  width:14px; height:14px;
+  border-radius:50%;
+  border:3px solid #fff;
+  z-index:1;
+}
+.tl-item[data-role="fte"]    .tl-dot { background:#690bec; box-shadow:0 0 0 3px rgba(105,11,236,.25); }
+.tl-item[data-role="intern"] .tl-dot { background:#f59e0b; box-shadow:0 0 0 3px rgba(245,158,11,.25); }
+
+.tl-card {
+  background:#fff;
+  border-radius:14px;
+  padding:18px 20px;
+  box-shadow:0 4px 16px rgba(2,6,23,.07);
+  border-left:4px solid;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.tl-item[data-role="fte"]    .tl-card { border-left-color:#690bec; }
+.tl-item[data-role="intern"] .tl-card { border-left-color:#f59e0b; }
+.tl-card:hover { box-shadow:0 8px 28px rgba(2,6,23,.13); transform:translateX(4px); }
+
+.tl-header { display:flex; align-items:flex-start; gap:14px; margin-bottom:12px; }
+.tl-logo {
+  width:56px; height:56px; object-fit:contain;
+  border-radius:10px; border:1px solid #e5e7eb;
+  padding:6px; background:#fff; flex-shrink:0;
+}
+.tl-meta { flex:1; min-width:0; }
+.tl-company {
+  font-family:'Poppins',sans-serif; font-weight:700;
+  font-size:clamp(17px,3.5vw,22px); color:#690bec;
+  margin:0 0 2px; line-height:1.15;
+}
+.tl-role {
+  font-size:clamp(13px,1.8vw,15px); font-weight:600;
+  color:#1f2937; margin:0 0 7px;
+}
+.tl-info { display:flex; flex-wrap:wrap; align-items:center; gap:7px; }
+.tl-date {
+  font-size:11.5px; color:#6b7280;
+  background:#eef7fb; border:1px solid #d7eef7;
+  padding:2px 10px; border-radius:999px; white-space:nowrap;
+}
+.tl-loc { font-size:11.5px; color:#6b7280; }
+.tl-badge {
+  font-size:10px; font-weight:700; letter-spacing:.7px;
+  text-transform:uppercase; padding:2px 9px; border-radius:999px;
+}
+.tl-badge.fte    { background:#ede9fe; color:#690bec; }
+.tl-badge.intern { background:#fef3c7; color:#92400e; }
+
+.tl-card ul { margin:0; padding-left:18px; }
+.tl-card li { margin:5px 0; font-size:13.5px; line-height:1.55; color:#374151; }
+
+/* filter states on timeline items */
+.tl-item { transition:opacity .55s ease, transform .55s ease; }
+.tl-item.skill-highlight .tl-card {
+  box-shadow:0 0 0 2.5px #1a56db, 0 8px 28px rgba(2,6,23,.14);
+  transform:translateX(6px);
+}
+.tl-item.skill-dim { opacity:.25; }
+
+@media(max-width:560px){
+  .timeline-container { padding-left:28px; }
+  .timeline-container::before { left:10px; }
+  .tl-dot { left:-23px; width:12px; height:12px; }
+  .tl-logo { width:44px; height:44px; }
+}
 
 
 </style>
@@ -682,232 +779,162 @@
 </div> -->
 
 <div class="container mt-5">
-  <style>
-    :root{
-      --brand:#ebee11; --ink:#1f2937; --muted:#6b7280;
-      --surface:#fff; --surface-alt:#f9fafb;
-      --shadow: 0 8px 24px rgba(2,6,23,.08);
-      --radius: 14px; --pad: 18px; --border:#dbe9ef;
-    }
 
-    /* ---- Single-column stack: one card per row ---- */
-    .experience-stack{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 100%;
-    }
+  <!-- Role-type legend -->
+  <div class="tl-legend">
+    <span><span class="tl-legend-dot" style="background:#690bec"></span>Full-Time</span>
+    <span><span class="tl-legend-dot" style="background:#f59e0b"></span>Internship</span>
+  </div>
 
-    /* ---- Card ---- */
-    .resume-wrap{
-      display: grid;
-      grid-template-columns: 120px 1fr;  /* fixed logo | fluid content */
-      align-items: start;
-      width: 100%;                       /* uniform full width */
-      box-sizing: border-box;
-      padding: var(--pad);
-      background: linear-gradient(180deg,var(--surface),var(--surface-alt));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+  <div class="timeline-container">
 
-    /* Logo */
-    .company-logo{
-      width: 108px; height: 108px;
-      object-fit: contain;
-      border-radius: 12px; background: #fff;
-      border: 1px solid #e5e7eb; padding: 8px;
-    }
-
-    /* Content */
-    .resume-content{ min-width: 0; color: var(--ink); }
-    .header-row{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      flex-wrap:wrap; margin-bottom:6px;
-    }
-    .title-block{ min-width:220px; }
-
-    .company{
-      font-family:"Poppins","Helvetica Neue",Arial,sans-serif;
-      font-weight:700;
-      font-size:clamp(24px,6vw,32px);
-      letter-spacing:.4px; line-height:1.05; color:#690bec;
-      display:block; margin:0 0 8px;
-    }
-    .resume-title{
-      margin:0 0 2px;
-      line-height:1.2; font-weight:600;
-      font-size:clamp(18px,2.2vw,22px); color:var(--ink);
-    }
-
-    .right-meta{ text-align:right; flex:1; min-width:200px; }
-    .date-strong{
-      display:inline-block;
-      font-size:clamp(12px,1.6vw,14px);
-      color:var(--muted);
-      background:#eef7fb; border:1px solid #d7eef7;
-      padding:4px 10px; border-radius:999px; white-space:nowrap;
-    }
-    .location{
-      display:block; margin-top:6px;
-      font-size:12px; color:var(--muted);
-    }
-
-    /* Bullets wrap inside the card */
-    .resume-content ul{ margin:8px 0 0; padding-left:18px; }
-    .resume-content li{
-      margin:6px 0; line-height:1.55;
-      white-space:normal; overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
-    }
-
-    /* Mobile */
-    @media (max-width:560px){
-      .resume-wrap{ grid-template-columns:84px 1fr; }
-      .company-logo{ width:84px; height:84px; padding:6px; }
-      .right-meta{ text-align:left; }
-    }
-  </style>
-
-
-  <div class="experience-grid">
-    <article class="resume-wrap" tabindex="0" data-company="anaplan">
-      <img src="images/anaplan.png" alt="Company Logo" class="company-logo">
-      <div class="resume-content">
-        <div class="header-row">
-          <div class="title-block">
-            <h3 class="company">Anaplan</h3>
-            <h4 class="resume-title">Sr Data Integrations Engineer</h4>
-          </div>
-          <div class="right-meta">
-            <span class="date-strong">Jun 2025 – Present</span>
-            <span class="location">San Francisco, CA</span>
+    <div class="tl-item" data-company="anaplan" data-role="fte">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/anaplan.png" alt="Anaplan" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Anaplan</h3>
+            <h4 class="tl-role">Sr Data Integrations Engineer</h4>
+            <div class="tl-info">
+              <span class="tl-date">Jun 2025 – Present</span>
+              <span class="tl-loc">San Francisco, CA</span>
+              <span class="tl-badge fte">Full-Time</span>
+            </div>
           </div>
         </div>
         <ul>
-			<li>Orchestrated data integration for the GTM Strategy team, unifying Salesforce CRM, Workday, Coupa to create a single source of truth.</li>
-			<li>Built the foundational data warehouse layer by developing robust Airflow DAGs for ETL, for downstream analytics on Google BigQuery.</li>
-			<li>Developed a full-stack data application with a FastAPI and Streamlit, democratizing data access for 50+ non-technical users.</li>
-			<li>Created streaming Dataflow jobs for asynchronous integration of Salesforce and ERP data, ensuring sub-minute latency for GTM analytics dashboards in Looker/Power BI.</li>
-			<li>Implemented an ML-driven monitoring system on GCP (DataProc, Composer, Dataflow, Gemini) analyzing 50+ Spark job logs daily, cutting MTTR by 40%.</li>
+          <li>Orchestrated data integration for the GTM Strategy team, unifying Salesforce CRM, Workday, Coupa to create a single source of truth.</li>
+          <li>Built the foundational data warehouse layer by developing robust Airflow DAGs for ETL, for downstream analytics on Google BigQuery.</li>
+          <li>Developed a full-stack data application with a FastAPI and Streamlit, democratizing data access for 50+ non-technical users.</li>
+          <li>Created streaming Dataflow jobs for asynchronous integration of Salesforce and ERP data, ensuring sub-minute latency for GTM analytics dashboards in Looker/Power BI.</li>
+          <li>Implemented an ML-driven monitoring system on GCP (DataProc, Composer, Dataflow, Gemini) analyzing 50+ Spark job logs daily, cutting MTTR by 40%.</li>
         </ul>
       </div>
-    </article>
+    </div>
 
-
-    <article class="resume-wrap" tabindex="0" data-company="tesla">
-      <img src="images/Tesla_Logo.png" alt="Company Logo" class="company-logo">
-      <div class="resume-content">
-        <div class="header-row">
-          <div class="title-block">
-            <h3 class="company">Tesla</h3>
-            <h4 class="resume-title">Data Engineer</h4>
-          </div>
-          <div class="right-meta">
-            <span class="date-strong">Aug 2024 – Jun 2025</span>
-            <span class="location">Sunnyvale, CA</span>
+    <div class="tl-item" data-company="tesla" data-role="fte">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/Tesla_Logo.png" alt="Tesla" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Tesla</h3>
+            <h4 class="tl-role">Data Engineer</h4>
+            <div class="tl-info">
+              <span class="tl-date">Aug 2024 – Jun 2025</span>
+              <span class="tl-loc">Sunnyvale, CA</span>
+              <span class="tl-badge fte">Full-Time</span>
+            </div>
           </div>
         </div>
         <ul>
-			<li>Optimized manufacturing data pipelines for S3XY and CT models, improving throughput and yield by 37%, leading to higher line efficiency.</li>
-			<li>Refactored Airflow workflows to automate ETL into Presto/Vertica DB, cutting sensor data query times by 30% and accelerating insights.</li>
-			<li>Engineered Kafka clusters processing 50M+ manufacturing events daily, enhancing real-time monitoring and cutting production-related issue by 35%.</li>
-			<li>Developed custom Python operators to load Kafka Jet Stream data into ClickHouse under strict SLAs, improving performance.</li>
-			<li>Implemented Prometheus-based monitoring and creating real-time Grafana dashboards, recreating metrics and reducing downtime.</li>
+          <li>Optimized manufacturing data pipelines for S3XY and CT models, improving throughput and yield by 37%, leading to higher line efficiency.</li>
+          <li>Refactored Airflow workflows to automate ETL into Presto/Vertica DB, cutting sensor data query times by 30% and accelerating insights.</li>
+          <li>Engineered Kafka clusters processing 50M+ manufacturing events daily, enhancing real-time monitoring and cutting production-related issue by 35%.</li>
+          <li>Developed custom Python operators to load Kafka Jet Stream data into ClickHouse under strict SLAs, improving performance.</li>
+          <li>Implemented Prometheus-based monitoring and creating real-time Grafana dashboards, recreating metrics and reducing downtime.</li>
         </ul>
       </div>
-    </article>
+    </div>
 
-	 <article class="resume-wrap" tabindex="0" data-company="volvo">
-      <img src="images/Volvo_Group_Image.png" alt="Company Logo" class="company-logo">
-      <div class="resume-content">
-        <div class="header-row">
-          <div class="title-block">
-            <h3 class="company">Volvo Group North America</h3>
-            <h4 class="resume-title">Data Engineering Intern</h4>
-          </div>
-          <div class="right-meta">
-            <span class="date-strong">May 2024 – Aug 2024</span>
-            <span class="location">Byhalia, MS</span>
+    <div class="tl-item" data-company="volvo" data-role="intern">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/Volvo_Group_Image.png" alt="Volvo" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Volvo Group North America</h3>
+            <h4 class="tl-role">Data Engineering Intern</h4>
+            <div class="tl-info">
+              <span class="tl-date">May 2024 – Aug 2024</span>
+              <span class="tl-loc">Byhalia, MS</span>
+              <span class="tl-badge intern">Internship</span>
+            </div>
           </div>
         </div>
         <ul>
-			<li>Constructed Data workflows to migrate data from WMS-Oracle Systems onto Azure Tables using Databricks Notebooks in the SML Team.</li>
-			<li>Automate existing Python scripts to deliver webmail service using Logic Apps/Power Automate, with 33% in operational efficiency.</li>
-			<li>Developed ADF pipelines, Databricks Notebooks, and Flask API calls for 3rd party application integration like SMTP, Microsoft 365 suite.</li>
-			<li>Used Web Scraping using Python scripts to extract attendance data and used Azure DevOps for Source Versioning and CI/CD releases.</li>
+          <li>Constructed Data workflows to migrate data from WMS-Oracle Systems onto Azure Tables using Databricks Notebooks in the SML Team.</li>
+          <li>Automate existing Python scripts to deliver webmail service using Logic Apps/Power Automate, with 33% in operational efficiency.</li>
+          <li>Developed ADF pipelines, Databricks Notebooks, and Flask API calls for 3rd party application integration like SMTP, Microsoft 365 suite.</li>
+          <li>Used Web Scraping using Python scripts to extract attendance data and used Azure DevOps for Source Versioning and CI/CD releases.</li>
         </ul>
       </div>
-    </article>
+    </div>
 
-	 <article class="resume-wrap" tabindex="0" data-company="walmart">
-      <img src="images/Walmart_Global_Tech_Logo.jpg" alt="Company Logo" class="company-logo">
-      <div class="resume-content">
-        <div class="header-row">
-          <div class="title-block">
-            <h3 class="company">Walmart Global Tech</h3>
-            <h4 class="resume-title">Data Engineer III</h4>
-          </div>
-          <div class="right-meta">
-            <span class="date-strong">May 2022 – Jul 2023</span>
-            <span class="location">Bengaluru, India</span>
+    <div class="tl-item" data-company="walmart" data-role="fte">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/Walmart_Global_Tech_Logo.jpg" alt="Walmart" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Walmart Global Tech</h3>
+            <h4 class="tl-role">Data Engineer III</h4>
+            <div class="tl-info">
+              <span class="tl-date">May 2022 – Jul 2023</span>
+              <span class="tl-loc">Bengaluru, India</span>
+              <span class="tl-badge fte">Full-Time</span>
+            </div>
           </div>
         </div>
         <ul>
-			<li>Modernized 30+ legacy Alteryx/DataStage ETL’s by contributing to the data lake migration using Spark-Scala for governance reporting.</li>
-			<li>Reduced the licensing costs by $30M USD annually, improved data ingestion rates by 20% using Parquet, Snappy compression technique.</li>
-			<li>Developed streaming and batch ETL pipelines from diverse sources like CSV files, Kafka, and REST APIs, performed EDA on datasets.</li>
-			<li>Implemented workflows using Apache Airflow DAGs resulting in 27% increased efficiency and change data capture in BigQuery tables.</li>
-			<li>Deployment, source code versioning and release into the test environment using Git, Concord/Jenkin software.</li>
+          <li>Modernized 30+ legacy Alteryx/DataStage ETL’s by contributing to the data lake migration using Spark-Scala for governance reporting.</li>
+          <li>Reduced the licensing costs by $30M USD annually, improved data ingestion rates by 20% using Parquet, Snappy compression technique.</li>
+          <li>Developed streaming and batch ETL pipelines from diverse sources like CSV files, Kafka, and REST APIs, performed EDA on datasets.</li>
+          <li>Implemented workflows using Apache Airflow DAGs resulting in 27% increased efficiency and change data capture in BigQuery tables.</li>
+          <li>Deployment, source code versioning and release into the test environment using Git, Concord/Jenkin software.</li>
         </ul>
       </div>
-    </article>
+    </div>
 
-	 <article class="resume-wrap" tabindex="0" data-company="fractal">
-      <img src="images\fractal_analytics_logo.jpg" alt="Company Logo" class="company-logo">
-      <div class="resume-content">
-        <div class="header-row">
-          <div class="title-block">
-            <h3 class="company">Fractal.ai</h3>
-            <h4 class="resume-title">Data Engineer</h4>
-          </div>
-          <div class="right-meta">
-            <span class="date-strong">March 2021 – Apr 2022</span>
-            <span class="location">Bengaluru, India</span>
+    <div class="tl-item" data-company="fractal" data-role="fte">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/fractal_analytics_logo.jpg" alt="Fractal" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Fractal.ai</h3>
+            <h4 class="tl-role">Data Engineer</h4>
+            <div class="tl-info">
+              <span class="tl-date">March 2021 – Apr 2022</span>
+              <span class="tl-loc">Bengaluru, India</span>
+              <span class="tl-badge fte">Full-Time</span>
+            </div>
           </div>
         </div>
         <ul>
-			<li>Led the development of a data lake on Azure Cloud, integrating supply chain, market, and finance data for an analytical tool providing prescriptive investment insights.</li>
-			<li>Designed and implemented a batch-processing ETL pipeline ingesting ~3 million records daily, achieving 97% accuracy and data quality.</li>
-			<li>Developed and maintained ETL processes using Azure Data Factory, PySpark on Databricks using Medallion architecture.</li>
-			<li>Implemented data harmonization, and deployment with CI/CD release pipeline using Azure DevOps</li>
+          <li>Led the development of a data lake on Azure Cloud, integrating supply chain, market, and finance data for an analytical tool providing prescriptive investment insights.</li>
+          <li>Designed and implemented a batch-processing ETL pipeline ingesting ~3 million records daily, achieving 97% accuracy and data quality.</li>
+          <li>Developed and maintained ETL processes using Azure Data Factory, PySpark on Databricks using Medallion architecture.</li>
+          <li>Implemented data harmonization, and deployment with CI/CD release pipeline using Azure DevOps</li>
         </ul>
       </div>
-    </article>
+    </div>
 
-	<article class="resume-wrap" tabindex="0" data-company="tcs">
-		<img src="images\TCS_logo.jpg" alt="Company Logo" class="company-logo">
-		<div class="resume-content">
-			<div class="header-row">
-			<div class="title-block">
-				<h3 class="company">Tata Consultancy Services</h3>
-				<h4 class="resume-title">Software Engineer (Big Data)</h4>
-			</div>
-			<div class="right-meta">
-				<span class="date-strong">Sept 2018 – Mar 2021</span>
-				<span class="location">Bengaluru, India</span>
-			</div>
-			</div>
-			<ul>
-				<li>Constructed ETL pipelines in ADF and improved the load efficiency 39% over manual loading into Azure Synapse EDW via Salesforce CRM.</li>
-				<li>Loaded dimension and fact tables implementing SCD Type 1 and Type 2 techniques, and managed control tables for Change Data Capture</li>
-				<li>Optimized SQL stored procedures, queries, and user-defined functions, reducing API fetch processing time by ~20%.</li>
-			</ul>
-		</div>
-    </article>
+    <div class="tl-item" data-company="tcs" data-role="fte">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-header">
+          <img src="images/TCS_logo.jpg" alt="TCS" class="tl-logo">
+          <div class="tl-meta">
+            <h3 class="tl-company">Tata Consultancy Services</h3>
+            <h4 class="tl-role">Software Engineer (Big Data)</h4>
+            <div class="tl-info">
+              <span class="tl-date">Sept 2018 – Mar 2021</span>
+              <span class="tl-loc">Bengaluru, India</span>
+              <span class="tl-badge fte">Full-Time</span>
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>Constructed ETL pipelines in ADF and improved the load efficiency 39% over manual loading into Azure Synapse EDW via Salesforce CRM.</li>
+          <li>Loaded dimension and fact tables implementing SCD Type 1 and Type 2 techniques, and managed control tables for Change Data Capture</li>
+          <li>Optimized SQL stored procedures, queries, and user-defined functions, reducing API fetch processing time by ~20%.</li>
+        </ul>
+      </div>
+    </div>
 
-
-	</div>
+  </div>
 </div>
 
 	<br>
@@ -1520,7 +1547,7 @@
     /* ---- Category filter ---- */
     var tabs  = document.querySelectorAll('.skill-tab');
     var tags  = document.querySelectorAll('.skill-tag');
-    var cards = document.querySelectorAll('.resume-wrap[data-company]');
+    var cards = document.querySelectorAll('.tl-item[data-company]');
     var cardMap = {
       anaplan: ['bigdata','cloud'],
       tesla:   ['bigdata','lang'],
@@ -1551,6 +1578,26 @@
 
       });
     });
+  })();
+  </script>
+
+  <script>
+  /* Timeline scroll-in animation */
+  (function () {
+    var items = document.querySelectorAll('.tl-item');
+    if (!items.length || !window.IntersectionObserver) {
+      items.forEach(function(i){ i.classList.add('tl-visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('tl-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (item) { obs.observe(item); });
   })();
   </script>
 
