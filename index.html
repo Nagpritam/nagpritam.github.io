@@ -131,6 +131,37 @@
   transform: scale(1.1);
 }
 
+/* ===== INFO WIDGET ===== */
+.info-widget {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.info-widget-row {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.info-widget-row:last-child { border-bottom: none; }
+.info-widget-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #ffbd39;
+  margin-bottom: 3px;
+}
+.info-widget-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
 /* ===== INTERACTIVE SKILLS SECTION ===== */
 .skill-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
 .skill-tab {
@@ -270,11 +301,23 @@
 									</div> -->
 									<!-- Details next to profile image -->
 									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Nagpritam Pradeep Naik</span></p>
-										<p><span class="title-s">Current Job Role: </span> <span>Data Integrations Engineer</span></p>
-										<p><span class="title-s">Total Relevant Experience: </span> <span>4 Years 7 Months</span></p>
-										<p><span class="title-s">Address: </span> <span>San Francisco, California, United States</span></p>
+									  <div class="info-widget">
+										<div class="info-widget-row">
+											<span class="info-widget-label">Name</span>
+											<span class="info-widget-value">Nagpritam Pradeep Naik</span>
+										</div>
+										<div class="info-widget-row">
+											<span class="info-widget-label">Current Job Role</span>
+											<span class="info-widget-value">Data Integrations Engineer</span>
+										</div>
+										<div class="info-widget-row">
+											<span class="info-widget-label">Total Relevant Experience</span>
+											<span class="info-widget-value">4 Years 7 Months</span>
+										</div>
+										<div class="info-widget-row">
+											<span class="info-widget-label">Address</span>
+											<span class="info-widget-value">San Francisco, California, US</span>
+										</div>
 									  </div>
 									</div>
 								  </div>
