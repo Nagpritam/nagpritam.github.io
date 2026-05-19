@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>My Portfolio</title>
@@ -65,45 +65,59 @@
 }
 
 
-/* Animation styles */
+/* Typewriter animation */
 #typing-animation {
-  position: relative;
+  display: inline-block;
   font-size: 30px;
   font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
+  color: #fff;
   white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
+  min-height: 1.4em;
+  letter-spacing: 0.5px;
 }
 
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
+#typing-animation::after {
+  content: '|';
+  display: inline-block;
+  color: #ffbd39;
+  margin-left: 2px;
+  animation: cursorBlink 0.7s step-start infinite;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
+/* Hero entrance animations */
+@keyframes heroFadeInUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+.hero-animate {
+  opacity: 0;
+  animation: heroFadeInUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-delay-1 { animation-delay: 0.10s; }
+.hero-delay-2 { animation-delay: 0.28s; }
+.hero-delay-3 { animation-delay: 0.46s; }
+.hero-delay-4 { animation-delay: 0.64s; }
+.hero-delay-5 { animation-delay: 0.82s; }
+.hero-delay-6 { animation-delay: 1.00s; }
+
+/* Particle canvas */
+#particle-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slider-item { position: relative; overflow: hidden; }
+.slider-item > .overlay    { position: relative; z-index: 1; }
+.slider-item > .container  { position: relative; z-index: 3; }
 
 
 /* project image zoom effect */
@@ -147,6 +161,7 @@
 	  <section id="home-section" class="hero">
 		  <div class="home-slider  owl-carousel">
 	       <div class="slider-item ">
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
 	      	<div class="overlay"></div>
 	         <div class="container">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
@@ -155,52 +170,38 @@
 	          	</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading">Hello! Welcome to my portfolio</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Nagpritam Naik</span></h1>
+		          		<span class="subheading hero-animate hero-delay-1">Hello! Welcome to my portfolio</span>
+			            <h1 class="mb-4 mt-3 hero-animate hero-delay-2">I'm <span>Nagpritam Naik</span></h1>
 
 						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
+						<span id="typing-animation" class="hero-animate hero-delay-3"></span>
 
 						<script>
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
+						const _ta = document.getElementById('typing-animation');
+						const _texts = ['Sr. Data Engineer', 'Spark Developer', 'Cloud Architect'];
+						let _ti = 0, _ci = 0, _del = false;
 
-						// Create an array of typing text
-						const typingTexts = [
-						'Data Engineer  ',
-						'Backend Software Engineer',
-						'Avid Astronomer',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
+						function _typeLoop() {
+							const cur = _texts[_ti];
+							_ta.textContent = _del ? cur.substring(0, _ci - 1) : cur.substring(0, _ci + 1);
+							_del ? _ci-- : _ci++;
+							let delay = _del ? 55 : 110;
+							if (!_del && _ci === cur.length)  { delay = 1800; _del = true; }
+							else if (_del && _ci === 0)       { _del = false; _ti = (_ti + 1) % _texts.length; delay = 380; }
+							setTimeout(_typeLoop, delay);
 						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
+						_typeLoop();
 
 						</script>
 
 						<br>
 						<br>
-			            <h2>Sr Data Integations Engineer</h2>
-						<h5>Anaplan.Inc</h5>
+			            <h2 class="hero-animate hero-delay-4">Sr Data Integations Engineer</h2>
+						<h5 class="hero-animate hero-delay-5">Anaplan.Inc</h5>
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
 						<!-- <br> -->
-			            <p>
+			            <p class="hero-animate hero-delay-6">
 							<!-- <a href="https://www.youtube.com/@RishabhMishraOfficial" class="btn btn-primary py-3 px-4">YouTube</a>  -->
 							<a href="https://github.com/Nagpritam" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
 		            </div>
@@ -1450,6 +1451,72 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-    
+
+  <script>
+  /* Particle mesh background for hero section */
+  (function () {
+    var canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, particles = [];
+    var COUNT = 65, MAX_DIST = 130;
+    var BRAND = 'rgba(255,189,57,';   /* #ffbd39 */
+
+    function resize() {
+      var parent = canvas.parentElement;
+      W = canvas.width  = parent.offsetWidth  || window.innerWidth;
+      H = canvas.height = parent.offsetHeight || window.innerHeight;
+    }
+
+    function mkParticle() {
+      return {
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.55,
+        vy: (Math.random() - 0.5) * 0.55,
+        r:  Math.random() * 1.8 + 1.2
+      };
+    }
+
+    function init() {
+      resize();
+      particles = [];
+      for (var i = 0; i < COUNT; i++) particles.push(mkParticle());
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = BRAND + '0.75)';
+        ctx.fill();
+        for (var j = i + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var dx = p.x - q.x, dy = p.y - q.y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX_DIST) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = BRAND + (0.18 * (1 - d / MAX_DIST)) + ')';
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+    window.addEventListener('resize', init);
+  })();
+  </script>
+
   </body>
 </html>
