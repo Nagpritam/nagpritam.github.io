@@ -1,316 +1,198 @@
 <!DOCTYPE html>
-<html lang="en" style="--font-sora:'Sora',sans-serif; --font-inter:'Inter',sans-serif; --font-mono:'JetBrains Mono',monospace;">
-<head>
-<title>My Portfolio</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en">
+  <head>
+    <title>My Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/all.min.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
 
-<link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="css/ionicons.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- <link href="<https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap>" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
 <style>
-
-/* ── Font System (Typography Base) ── */
-
-/* Body / prose */
-body { font-family: var(--font-inter); line-height: 1.7; }
-p, li, span, label, td { font-family: var(--font-inter); line-height: 1.7; }
-
-/* Headings → Sora */
-h1 { font-family: var(--font-sora); font-weight: 700; letter-spacing: -0.02em; }
-h2 { font-family: var(--font-sora); font-weight: 600; letter-spacing: -0.015em; }
-h3 { font-family: var(--font-sora); font-weight: 600; letter-spacing: -0.01em; }
-h4, h5, h6 { font-family: var(--font-sora); font-weight: 600; }
-.big, .big-2, .big-4,
-.navbar-brand,
-.vtl-company,
-.heading-section h2,
-.certification-title { font-family: var(--font-sora); }
-
-/* Code / mono → JetBrains Mono pill style */
-code, pre, kbd, samp, .tag {
-font-family: var(--font-mono);
-font-size: 0.85em;
-background: rgba(255,255,255,0.07);
-padding: 2px 8px;
-border-radius: 6px;
-border: 1px solid rgba(255,255,255,0.1);
-}
-pre code { background: none; padding: 0; border: none; }
-.skill-tag,
-.vtl-date,
-.proj-tag,
-#typing-animation,
-.metric-number { font-family: var(--font-mono); }
-
-/* Hero-level display utility */
-.font-display {
-font-family: var(--font-sora);
-font-weight: 700;
-font-size: clamp(40px, 6vw, 72px);
-letter-spacing: -0.03em;
-line-height: 1.05;
-}
-
-/* ── Section Heading with underline accent + fade-in ── */
-.heading-section h2 {
-font-family: var(--font-sora);
-font-size: 32px;
-font-weight: 600;
-position: relative;
-display: inline-block;
-padding-bottom: 12px;
-}
-.heading-section h2::after {
-content: '';
-position: absolute;
-left: 50%;
-bottom: 0;
-transform: translateX(-50%);
-width: 50px;
-height: 3px;
-border-radius: 3px;
-background: linear-gradient(90deg, #ffbd39, #f97316);
-}
-.heading-section p {
-font-family: var(--font-inter);
-font-size: 16px;
-color: rgba(255,255,255,.55);
-}
-.section-fade-up {
-opacity: 0;
-transform: translateY(24px);
-transition: opacity .7s ease, transform .7s ease;
-}
-.section-fade-up.visible {
-opacity: 1;
-transform: translateY(0);
-}
 
 /*======================================
 //--//-->   ABOUT
 ======================================*/
 
 .about-mf .box-shadow-full {
-padding-top: 4rem;
-padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .about-mf .about-img {
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .about-mf .about-img img {
-margin-left: 10px;
+  margin-left: 10px;
 }
 
+
 .skill-mf .progress {
-/* background-color: #cde1f8; */
-margin: .5rem 0 1.2rem 0;
-border-radius: 0;
-height: .7rem;
+  /* background-color: #cde1f8; */
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
 }
 
 .skill-mf .progress .progress-bar {
-height: .7rem;
-background-color: #ffbd39;
+  height: .7rem;
+  background-color: #ffbd39;
 }
+
 
 /* Animation styles */
 #typing-animation {
-position: relative;
-font-size: 30px;
-font-weight: bold;
-color: rgb(255, 255, 255);
-overflow: hidden;
-white-space: nowrap;
-animation: typing 3s steps(20, end) infinite;
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(20, end) infinite;
 }
 
 #typing-animation:before {
-content: "";
-/* position: absolute; */
-top: 0;
-left: 0;
-width: 0;
-height: 100%;
-background-color: #ccc;
-animation: typing-cursor 0.5s ease-in-out infinite;
+  content: "";
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #ccc;
+  animation: typing-cursor 0.5s ease-in-out infinite;
 }
 
 @keyframes typing {
-from {
-width: 0;
-}
-to {
-width: 100%;
-}
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes typing-cursor {
-from {
-width: 5px;
+  from {
+    width: 5px;
+  }
+  to {
+    width: 0;
+  }
 }
-to {
-width: 0;
-}
-}
+
 
 /* project image zoom effect */
 
 .zoom-effect {
-overflow: hidden;
-transition: transform 0.3s ease-out;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
 }
 
 .zoom-effect:hover {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
+
 </style>
 
-<style>
-.theme-toggle-btn{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:background .3s,transform .3s;padding:0}
-.theme-toggle-btn:hover{background:rgba(255,255,255,.22);transform:scale(1.1)}
-.theme-icon-light{display:none}
-body.light-mode .theme-icon-dark{display:none}
-body.light-mode .theme-icon-light{display:inline}
-body.light-mode{background:#f5f5f5!important;color:#1a1a2e!important}
-body.light-mode .ftco_navbar{background:#fff!important;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-body.light-mode .ftco_navbar .navbar-brand,body.light-mode .ftco_navbar .nav-link span{color:#1a1a2e!important}
-body.light-mode .ftco_navbar .nav-link:hover span{color:#ffbd39!important}
-body.light-mode .theme-toggle-btn{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.15)}
-body.light-mode .hero{background:linear-gradient(135deg,#1a1a2e,#16213e)!important}
-body.light-mode .ftco-section,body.light-mode .ftco-about{background:#f5f5f5!important}
-body.light-mode .heading-section h2,body.light-mode .heading-section h1,body.light-mode .big-4{color:#1a1a2e!important}
-body.light-mode .about-info p,body.light-mode .about-info span{color:#333!important}
-body.light-mode .title-s{color:#1a1a2e!important}
-body.light-mode .vtl-card{background:#fff}
-body.light-mode .education-wrap{background:#fff;border-color:#ddd}
-body.light-mode .contact-section .box{background:#fff!important}
-body.light-mode .contact-section .box h3{color:#1a1a2e!important}
-body.light-mode .contact-section .box p,body.light-mode .contact-section .box a{color:#333!important}
-body.light-mode .blog-entry{background:#fff;border-radius:10px}
-body.light-mode .blog-entry .text h3 a{color:#1a1a2e!important}
-body.light-mode .blog-entry .text p{color:#444!important}
-body.light-mode .ftco-footer-social .normal-txt{color:#333!important}
-body.light-mode .achievements-card{background:#fff}
-.metrics-row{display:flex;gap:14px;margin:16px 0 10px;flex-wrap:wrap}
-.metric-card{flex:1;min-width:100px;padding:16px 12px;border-radius:12px;text-align:center;background:#f9f9f9;border:1px solid #e5e7eb;transition:transform .3s,box-shadow .3s}
-.metric-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
-.metric-number{font-family:var(--font-sora);font-size:40px;font-weight:700;line-height:1.1}
-.metric-prefix{font-size:.65em}
-.metric-suffix{font-size:.6em;font-weight:700}
-.metric-label{display:block;font-family:var(--font-inter);font-size:14px;color:#6b7280;margin-top:8px;font-weight:500}
-.metric-green .metric-number{color:#27ae60}
-.metric-blue .metric-number{color:#2980b9}
-.metric-red .metric-number{color:#c0392b}
-.metric-green{border-left:3px solid #27ae60}
-.metric-blue{border-left:3px solid #2980b9}
-.metric-red{border-left:3px solid #c0392b}
-@media(max-width:480px){.metrics-row{flex-direction:column}}
-</style>
 
-</head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+	  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Nagpritam Pradeep Naik</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
 
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Nagpritam Pradeep Naik</a>
-      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Experience</span></a></li>
+			  <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  <section id="home-section" class="hero">
+		  <div class="home-slider  owl-carousel">
+	       <div class="slider-item ">
+	      	<div class="overlay"></div>
+	         <div class="container">
+	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/my_pic_np.png); background-position: center;">
+	          	 <div class="overlay"></div>
+	          	</div>
+		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Hello! Welcome to my portfolio</span>
+			            <h1 class="mb-4 mt-3">I'm <span>Nagpritam Naik</span></h1>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Experience</span></a></li>
-		  <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
-          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-          <li class="nav-item d-flex align-items-center ml-lg-3">
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode" onclick="toggleTheme()">
-              <span class="theme-icon-dark">🌙</span>
-              <span class="theme-icon-light">☀️</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <section id="home-section" class="hero" style="position:relative;overflow:hidden;">
-	  <!-- Particle canvas background -->
-	  <canvas id="particle-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
-	  <div class="home-slider  owl-carousel" style="position:relative;z-index:1;">
-       <div class="slider-item ">
-      	<div class="overlay"></div>
-         <div class="container">
-          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/my_pic_np.png); background-position: center;">
-          	 <div class="overlay"></div>
-          	</div>
-	          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-	          	<div class="text hero-entrance">
-	          		<span class="subheading hero-fade-up" style="animation-delay:.1s; font-family:var(--font-inter); font-size:16px; color:rgba(255,255,255,.7);">Hello! Welcome to my portfolio</span>
-		            <h1 class="mb-4 mt-3 hero-fade-up font-display" style="animation-delay:.3s; font-size:56px;">I'm <span>Nagpritam Naik</span></h1>
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
 
-					<!-- Typewriter effect -->
-					<span id="typing-animation" style="font-family:var(--font-inter); font-size:20px; color:rgba(255,255,255,.6);"></span>
+						<script>
 
-					<script>
-					(function(){
-					  const el = document.getElementById('typing-animation');
-					  const roles = ['Sr. Data Engineer', 'Spark & Kafka Engineer', 'Cloud Data Architect'];
-					  let roleIdx = 0, charIdx = 0, deleting = false;
-					  const TYPE_SPEED = 110, DELETE_SPEED = 60, PAUSE = 1800;
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
 
-					  function tick(){
-					    const current = roles[roleIdx];
-					    if(!deleting){
-					      el.textContent = current.substring(0, charIdx + 1);
-					      charIdx++;
-					      if(charIdx === current.length){
-					        deleting = true;
-					        setTimeout(tick, PAUSE);
-					        return;
-					      }
-					      setTimeout(tick, TYPE_SPEED);
-					    } else {
-					      el.textContent = current.substring(0, charIdx - 1);
-					      charIdx--;
-					      if(charIdx === 0){
-					        deleting = false;
-					        roleIdx = (roleIdx + 1) % roles.length;
-					      }
-					      setTimeout(tick, DELETE_SPEED);
-					    }
-					  }
-					  tick();
-					})();
-					</script>
+						// Create an array of typing text
+						const typingTexts = [
+						'Data Engineer  ',
+						'Backend Software Engineer',
+						'Avid Astronomer',
+						];
+
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+
+						</script>
 
 						<br>
 						<br>
@@ -517,85 +399,85 @@ body.light-mode .achievements-card{background:#fff}
 						</div>
 
 
-					<div class="counter-wrap ftco-animate d-flex mt-md-3">
-						<div class="text">
-							<p class="mb-4">
-								<!-- <span class="number" data-number="30">0</span> <span>+</span>
-								<span>&nbsp; Projects completed</span>
-							</p> -->
-							<p><a href="https://www.linkedin.com/in/nagpritam-naik/" class="btn btn-primary py-3 px-3" target="_blank">LinkedIn</a></p>
+						<div class="counter-wrap ftco-animate d-flex mt-md-3">
+							<div class="text">
+								<p class="mb-4">
+									<!-- <span class="number" data-number="30">0</span> <span>+</span>
+									<span>&nbsp; Projects completed</span>
+								</p> -->
+								<p><a href="https://www.linkedin.com/in/nagpritam-naik/" class="btn btn-primary py-3 px-3" target="_blank">LinkedIn</a></p>
+							</div>
 						</div>
-					</div>
 
-					<style>
-						.certifications-section {
-							padding: 60px 0;
-							background-color: #f8f9fa;
-						}
-						.certification-item {
-							display: flex;
-							flex-wrap: wrap; /* Ensure items wrap to the next line if needed */
-							justify-content: center; /* Center items horizontally */
-							gap: 20px; /* Space between images */
-							margin-bottom: 20px;
-						}
-						.certification-item img {
-							max-width: 150px; /* Set a fixed maximum width */
-							height: auto;
-							border-radius: 5px;
-							box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-							transition: transform 0.3s; /* Add transition for hover effect */
-						}
-						.certification-item img:hover {
-							transform: scale(1.05); /* Slightly enlarge image on hover */
-						}
-						.certification-title {
-							font-size: 38px;
-							margin-bottom: 20px;
-							text-align: center;
-							width: 100%;
-						}
-					</style>
-
-<div class="container mt-4">
-    <div class="certification-item">
-        <h1 class="certification-title">Certifications</h1>
-        <a href="images/AZ-900.png" target="_blank">
-            <img src="images/AZ-900.png" alt="Certification 1">
-        </a>
-        <a href="images/DP-900.png" target="_blank">
-            <img src="images/DP-900.png" alt="Certification 2">
-        </a>
-        <a href="images/DP-203.png" target="_blank">
-            <img src="images/DP-203.png" alt="Certification 3">
-        </a>
+						<style>
+							.certifications-section {
+								padding: 60px 0;
+								background-color: #f8f9fa;
+							}
+							.certification-item {
+								display: flex;
+								flex-wrap: wrap; /* Ensure items wrap to the next line if needed */
+								justify-content: center; /* Center items horizontally */
+								gap: 20px; /* Space between images */
+								margin-bottom: 20px;
+							}
+							.certification-item img {
+								max-width: 150px; /* Set a fixed maximum width */
+								height: auto;
+								border-radius: 5px;
+								box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+								transition: transform 0.3s; /* Add transition for hover effect */
+							}
+							.certification-item img:hover {
+								transform: scale(1.05); /* Slightly enlarge image on hover */
+							}
+							.certification-title {
+								font-size: 38px;
+								margin-bottom: 20px;
+								text-align: center;
+								width: 100%;
+							}
+						</style>
+						
+    <div class="container mt-4">
+        <div class="certification-item">
+            <h1 class="certification-title">Certifications</h1>
+            <a href="images/AZ-900.png" target="_blank">
+                <img src="images/AZ-900.png" alt="Certification 1">
+            </a>
+            <a href="images/DP-900.png" target="_blank">
+                <img src="images/DP-900.png" alt="Certification 2">
+            </a>
+            <a href="images/DP-203.png" target="_blank">
+                <img src="images/DP-203.png" alt="Certification 3">
+            </a>
+        </div>
     </div>
-</div>
 
-<div class="container mt-4">
-    <div class="certification-item">
-        <a href="images/aws.jpg" target="_blank">
-            <img src="images/aws.jpg" alt="Certification 4">
-        </a>
-        <a href="images/airflow.png" target="_blank">
-            <img src="images/airflow.png" alt="Certification 5">
-        </a>
-        <a href="images/alteryx-designer-core.png" target="_blank">
-            <img src="images/alteryx-designer-core.png" alt="Certification 6">
-        </a>
+    <div class="container mt-4">
+        <div class="certification-item">
+            <a href="images/aws.jpg" target="_blank">
+                <img src="images/aws.jpg" alt="Certification 4">
+            </a>
+            <a href="images/airflow.png" target="_blank">
+                <img src="images/airflow.png" alt="Certification 5">
+            </a>
+            <a href="images/alteryx-designer-core.png" target="_blank">
+                <img src="images/alteryx-designer-core.png" alt="Certification 6">
+            </a>
+        </div>
     </div>
-</div>
 
-<div class="container mt-4">
-    <div class="certification-item">
-        <a href="images/alteryx-micro.png" target="_blank">
-            <img src="images/alteryx-micro.png" alt="Certification 7">
-        </a>
-        <a href="images/databricks.png" target="_blank">
-            <img src="images/databricks.png" alt="Certification 8">
-        </a>
+    <div class="container mt-4">
+        <div class="certification-item">
+            <a href="images/alteryx-micro.png" target="_blank">
+                <img src="images/alteryx-micro.png" alt="Certification 7">
+            </a>
+            <a href="images/databricks.png" target="_blank">
+                <img src="images/databricks.png" alt="Certification 8">
+            </a>
+        </div>
     </div>
-</div>
 
 				  </div>
 				</div>
@@ -677,58 +559,57 @@ body.light-mode .achievements-card{background:#fff}
 			</div>
 		</div>
 
-```
-	<div class="col-md-12">
-		<div class="resume-wrap ftco-animate">
-			<img src="images\\Walmart_Global_Tech_Logo.jpg" alt="Walmart Logo" class="company-logo">
-			<div class="resume-content">
-				<span class="date">Walmart Global Tech India</span>
-				<h4>Data Engineer III</h4>
-				<h5>May 2022 - July 2023</h5>
-				<ul>
-					<li>Contributed to the data lake for Data Governance reporting, modernizing 20+ complex Alteryx and 15+ DataStage ETL workflows to
-						Spark-Scala code, and reduced the licensing costs by $300,000 annually.</li>
-					<li>Developed streaming and batch ETL pipelines from diverse sources like CSV files, Kafka, and REST APIs, performed EDA on datasets.</li>
-					<li>Implemented workflows using Apache Airflow DAGs resulting in 27% increased efficiency and change data capture in BigQuery tables.</li>
-					<li>Deployment, source code versioning and release into the test environment using Git, Concord/Jenkin software.</li>
-				</ul>
+		<div class="col-md-12">
+			<div class="resume-wrap ftco-animate">
+				<img src="images\Walmart_Global_Tech_Logo.jpg" alt="Walmart Logo" class="company-logo">
+				<div class="resume-content">
+					<span class="date">Walmart Global Tech India</span>
+					<h4>Data Engineer III</h4>
+					<h5>May 2022 - July 2023</h5>
+					<ul>
+						<li>Contributed to the data lake for Data Governance reporting, modernizing 20+ complex Alteryx and 15+ DataStage ETL workflows to
+							Spark-Scala code, and reduced the licensing costs by $300,000 annually.</li>
+						<li>Developed streaming and batch ETL pipelines from diverse sources like CSV files, Kafka, and REST APIs, performed EDA on datasets.</li>
+						<li>Implemented workflows using Apache Airflow DAGs resulting in 27% increased efficiency and change data capture in BigQuery tables.</li>
+						<li>Deployment, source code versioning and release into the test environment using Git, Concord/Jenkin software.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="col-md-12">
-		<div class="resume-wrap ftco-animate">
-			<img src="images\\fractal_analytics_logo.jpg" alt="Fractal Logo" class="company-logo">
-			<div class="resume-content">
-				<span class="date">Fractal Analytics</span>
-				<h4>Data Engineer</h4>
-				<h5>March 2021 - April 2022</h5>
-				<ul>
-					<li>Led the development of a data lake on Azure Cloud, integrating supply chain, market, and finance data for an analytical tool providing
-						prescriptive investment insights.</li>
-					<li>Designed and implemented a batch-processing ETL pipeline ingesting ~3 million records daily, achieving 97% accuracy and data quality.</li>
-					<li>Developed and maintained ETL processes using Azure Data Factory, PySpark on Databricks using Medallion architecture.</li>
-					<li>Implemented data harmonization, and deployment with CI/CD release pipeline using Azure DevOps</li>
-				</ul>
+		<div class="col-md-12">
+			<div class="resume-wrap ftco-animate">
+				<img src="images\fractal_analytics_logo.jpg" alt="Fractal Logo" class="company-logo">
+				<div class="resume-content">
+					<span class="date">Fractal Analytics</span>
+					<h4>Data Engineer</h4>
+					<h5>March 2021 - April 2022</h5>
+					<ul>
+						<li>Led the development of a data lake on Azure Cloud, integrating supply chain, market, and finance data for an analytical tool providing
+							prescriptive investment insights.</li>
+						<li>Designed and implemented a batch-processing ETL pipeline ingesting ~3 million records daily, achieving 97% accuracy and data quality.</li>
+						<li>Developed and maintained ETL processes using Azure Data Factory, PySpark on Databricks using Medallion architecture.</li>
+						<li>Implemented data harmonization, and deployment with CI/CD release pipeline using Azure DevOps</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="col-md-12">
-		<div class="resume-wrap ftco-animate">
-			<img src="images\\TCS_logo.jpg" alt="TCS Logo" class="company-logo">
-			<div class="resume-content">
-				<span class="date">Tata Consultancy Services</span>
-				<h4>System Engineer (Azure Data Engineer)</h4>
-				<h5>October 2018 - March 2021</h5>
-				<ul>
-					<li>Constructed ETL pipelines in Azure Data Factory(ADF) and increased the efficiency to ~ 39% compared to manual load, built data
-						warehouse on Azure Synapse Analytics.</li>
-					<li>Optimized SQL stored procedures, queries, and user-defined functions, leading to ~20% reduction in processing time by the API fetching.</li>
-				</ul>
+		<div class="col-md-12">
+			<div class="resume-wrap ftco-animate">
+				<img src="images\TCS_logo.jpg" alt="TCS Logo" class="company-logo">
+				<div class="resume-content">
+					<span class="date">Tata Consultancy Services</span>
+					<h4>System Engineer (Azure Data Engineer)</h4>
+					<h5>October 2018 - March 2021</h5>
+					<ul>
+						<li>Constructed ETL pipelines in Azure Data Factory(ADF) and increased the efficiency to ~ 39% compared to manual load, built data
+							warehouse on Azure Synapse Analytics.</li>
+						<li>Optimized SQL stored procedures, queries, and user-defined functions, leading to ~20% reduction in processing time by the API fetching.</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 
 	</div>
 </div>
@@ -773,231 +654,233 @@ body.light-mode .achievements-card{background:#fff}
 	</section>
 
 <section class="ftco-section ftco-no-pb" id="education-section"></section>
-<div class="row">
-<!-- <style>
-/* .resume-wrap {
-border: 1px solid #0faeda;
-border-radius: 10px;
-padding: 20px;
-margin-bottom: 20px;
-display: flex;
-align-items: center;
-} */
-.university-logo {
-width: 100px;
-height: 100px;
-object-fit: contain;
-margin-right: 20px;
-}
-.resume-content {
-flex-grow: 1;
-}
-.resume-content h2 {
-margin-top: 0;
-}
-.resume-content ul {
-padding-left: 20px;
-}
-.position {
-font-size: 500px;
-font-weight: bold;
-color: #0b9aec78;
-}
-.date {
-font-size: 10px;
-color: #04f0627b;
-}
-</style> -->
-
-```
-		<style>
-			.education-wrap {
-				border: 1px solid #0faeda;
-				border-radius: 10px;
-				padding: 20px;
-				margin-bottom: 20px;
-				display: flex;
-				align-items: center;
-				flex-direction: column; /* Stack elements vertically */
-				text-align: center; /* Center text within the container */
-			}
-			.university-logo {
-				width: 100px; /* Adjust size as needed */
-				height: auto; /* Maintain aspect ratio */
-				margin-bottom: 20px; /* Space below the logo */
-			}
-			.datee, .positionn {
-				display: block; /* Ensures each span is on a new line */
-				margin-bottom: 10px; /* Space below each span */
-			}
-			.datee {
-				font-size: 38px; /* Size for the date */
-				color: #c79604; /* Optional: Set font color */
-			}
-			.positionn {
-				font-size: 20px; /* Size for the position */
-				font-weight: bold; /* Optional: Make the position bold */
-				color: #07f43668; /* Optional: Set font color */
-			}
-			h2 {
-				margin: 20px 0; /* Space above and below the heading */
-			}
-			p {
-				margin-top: 20px; /* Space above the paragraph */
-			}
-		</style>
-
-		<h1 class="big-4">Education</h1>
-		<div class="underline"></div>
-	</div>
-	<br>
-
 		<div class="row">
-			<div class="col-md-12">
-				<div class="education-wrap ftco-animate">
-					<img src="images\\UTD_logo.png" alt="UTD Logo" class="university-logo">
-					<!-- <span class="position">2023-2025</span> -->
-					<h2>Master of Science in Information Technology</h2>
-					<span class="datee">University of Texas at Dallas</span>
-					<span class="positionn">August 2023 - May 2025</span>
-					<p class="mt-3">GPA: 4.0</p>
-					<div class="subjects mt-3">
-						<h4>Coursework</h4>
-						<ul>
-							<li>Business Data Warehousing, Database Foundations for Business Analytics, Advanced Statistics for Data Science, Predictive Analytics for Data Science, Business Analytics with R,
-								Big Data, AWS Cloud Architecture, Applied Machine Learning, Natural Language Processing, System Analysis &amp; Management, Spreadsheet Modeling and Analytics</li>
-							<!-- <li>Database Management Systems</li>
-							<li>Machine Learning</li>
-							<li>Cloud Computing</li>
-							<li>Cybersecurity</li> -->
-						</ul>
+			<!-- <style>
+				/* .resume-wrap {
+					border: 1px solid #0faeda;
+					border-radius: 10px;
+					padding: 20px;
+					margin-bottom: 20px;
+					display: flex;
+					align-items: center;
+				} */
+				.university-logo {
+					width: 100px;
+					height: 100px;
+					object-fit: contain;
+					margin-right: 20px;
+				}
+				.resume-content {
+					flex-grow: 1;
+				}
+				.resume-content h2 {
+					margin-top: 0;
+				}
+				.resume-content ul {
+					padding-left: 20px;
+				}
+				.position {
+            		font-size: 500px; 
+            		font-weight: bold; 
+            		color: #0b9aec78; 
+        		}
+        		.date {
+           			font-size: 10px; 
+            		color: #04f0627b;
+        			}
+			</style> -->
+
+			<style>
+				.education-wrap {
+					border: 1px solid #0faeda;
+					border-radius: 10px;
+					padding: 20px;
+					margin-bottom: 20px;
+					display: flex;
+					align-items: center;
+					flex-direction: column; /* Stack elements vertically */
+					text-align: center; /* Center text within the container */
+				}
+				.university-logo {
+					width: 100px; /* Adjust size as needed */
+					height: auto; /* Maintain aspect ratio */
+					margin-bottom: 20px; /* Space below the logo */
+				}
+				.datee, .positionn {
+					display: block; /* Ensures each span is on a new line */
+					margin-bottom: 10px; /* Space below each span */
+				}
+				.datee {
+					font-size: 38px; /* Size for the date */
+					color: #c79604; /* Optional: Set font color */
+				}
+				.positionn {
+					font-size: 20px; /* Size for the position */
+					font-weight: bold; /* Optional: Make the position bold */
+					color: #07f43668; /* Optional: Set font color */
+				}
+				h2 {
+					margin: 20px 0; /* Space above and below the heading */
+				}
+				p {
+					margin-top: 20px; /* Space above the paragraph */
+				}
+			</style>
+
+			<h1 class="big-4">Education</h1>
+			<div class="underline"></div>
+		</div>
+		<br>
+		
+			<div class="row">
+    			<div class="col-md-12">
+    				<div class="education-wrap ftco-animate">
+						<img src="images\UTD_logo.png" alt="UTD Logo" class="university-logo">
+    					<!-- <span class="position">2023-2025</span> -->
+    					<h2>Master of Science in Information Technology</h2>
+    					<span class="datee">University of Texas at Dallas</span>
+						<span class="positionn">August 2023 - May 2025</span>
+    					<p class="mt-3">GPA: 4.0</p>
+						<div class="subjects mt-3">
+							<h4>Coursework</h4>
+							<ul>
+								<li>Business Data Warehousing, Database Foundations for Business Analytics, Advanced Statistics for Data Science, Predictive Analytics for Data Science, Business Analytics with R, 
+									Big Data, AWS Cloud Architecture, Applied Machine Learning, Natural Language Processing, System Analysis &amp; Management, Spreadsheet Modeling and Analytics</li>
+								<!-- <li>Database Management Systems</li>
+								<li>Machine Learning</li>
+								<li>Cloud Computing</li>
+								<li>Cybersecurity</li> -->
+							</ul>
+						</div>	
+    				</div>
+    			</div>
+
+    			<div class="col-md-12">
+    				<div class="education-wrap ftco-animate">
+						<img src="images\VTU_logo.jpg" alt="UTD Logo" class="university-logo">
+    					<!-- <span class="position">2014-2018</span> -->
+    					<h2>Bachelor of Engineering</h2>
+    					<span class="datee">Visvesvaraya Technological University</span>
+						<span class="positionn">2014 - 2018</span>
+    					<p class="mt-3">GPA: 3.6</p>
+    				</div>
+    			</div>
+    		</div>
+
+    		<!-- <div class="row justify-content-center mt-5">
+    			<div class="col-md-6 text-center ftco-animate">
+    				<p><a href="docs\Nagpritam_Naik_DE_Resume.pdf" class="btn btn-primary py-4 px-5" download="Nagpritam_Naik_Resume.pdf" >Download Resume(.pdf)</a></p>
+    			</div>
+    		</div> -->
+			<!-- <div class="container mt-5">
+				<div class="row justify-content-center mt-5">
+					<div class="col-md-6 text-center ftco-animate">
+						<p><a href="docs\Nagpritam_Naik_DE_Resume.pdf" class="btn btn-primary py-4 px-5" download="Nagpritam_Naik_Resume.pdf" target="_blank">Download Resume</a></p>
 					</div>
 				</div>
-			</div>
+			</div> -->
+    	</div>
+    </section>
 
-			<div class="col-md-12">
-				<div class="education-wrap ftco-animate">
-					<img src="images\\VTU_logo.jpg" alt="UTD Logo" class="university-logo">
-					<!-- <span class="position">2014-2018</span> -->
-					<h2>Bachelor of Engineering</h2>
-					<span class="datee">Visvesvaraya Technological University</span>
-					<span class="positionn">2014 - 2018</span>
-					<p class="mt-3">GPA: 3.6</p>
-				</div>
-			</div>
-		</div>
+   
 
-		<!-- <div class="row justify-content-center mt-5">
-			<div class="col-md-6 text-center ftco-animate">
-				<p><a href="docs\\Nagpritam_Naik_DE_Resume.pdf" class="btn btn-primary py-4 px-5" download="Nagpritam_Naik_Resume.pdf" >Download Resume(.pdf)</a></p>
-			</div>
-		</div> -->
-		<!-- <div class="container mt-5">
-			<div class="row justify-content-center mt-5">
-				<div class="col-md-6 text-center ftco-animate">
-					<p><a href="docs\\Nagpritam_Naik_DE_Resume.pdf" class="btn btn-primary py-4 px-5" download="Nagpritam_Naik_Resume.pdf" target="_blank">Download Resume</a></p>
-				</div>
-			</div>
-		</div> -->
-	</div>
-</section>
-
-<section class="ftco-section" id="project-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-5">
-      <div class="col-md-7 heading-section text-center ftco-animate">
-        <h1 class="big big-2">Projects</h1>
-        <h2 class="mb-5">Projects</h2>
-        <p>Below are the projects worked upon by me during my academic and professional time.</p>
-      </div>
-    </div>
-    <div class="row d-flex">
-      <!-- <div class="col-md-4 d-flex ftco-animate">
-      	<div class="blog-entry justify-content-end">
-          <a href="<https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql>" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
-          </a>
-          <div class="text mt-3 float-right d-block">
-
-            <h3 class="heading"><a href="<https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql>">Digital Music Store Data Analysis using SQL</a></h3>
-            <p>Non Destructive Automatic Fruit Detection/Seperation Technology.</p>
+    <section class="ftco-section" id="project-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-5">Projects</h2>
+            <p>Below are the projects worked upon by me during my academic and professional time.</p>
           </div>
         </div>
-      </div> -->
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-					<a href="<https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology>" class="block-20 zoom-effect" style="background-image: url('images/NP_image_1.jpg');">
-					</a>
-					<div class="text mt-3 float-right d-block">
-						<h3 class="heading"><a href="<https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology>">Non Destructive Automatic Fruit Detection/Separation Technology</a></h3>
-						<p>The primary goal of the project is to detect the quality of fruits and grade them based on their size and quality. This was achieved using Neural Networks algorithms combined with the K-Clustering technique to generate different cluster images.</p>
-						<div class="project-links">
-							<a href="<https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology>" target="_blank">GitHub</a>
-							<a href="<https://www.youtube.com/watch?v=verMdASiuHo>" target="_blank">YouTube</a>
+        <div class="row d-flex">
+          <!-- <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+
+                <h3 class="heading"><a href="https://github.com/rishabhnmishra/SQL_Music_Store_Analysis/blob/main/Music_Store_Query.sql">Digital Music Store Data Analysis using SQL</a></h3>
+                <p>Non Destructive Automatic Fruit Detection/Seperation Technology.</p>
+              </div>
+            </div>
+          </div> -->
+				<div class="col-md-4 d-flex ftco-animate">
+					<div class="blog-entry justify-content-end">
+						<a href="https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology" class="block-20 zoom-effect" style="background-image: url('images/NP_image_1.jpg');">
+						</a>
+						<div class="text mt-3 float-right d-block">
+							<h3 class="heading"><a href="https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology">Non Destructive Automatic Fruit Detection/Separation Technology</a></h3>
+							<p>The primary goal of the project is to detect the quality of fruits and grade them based on their size and quality. This was achieved using Neural Networks algorithms combined with the K-Clustering technique to generate different cluster images.</p>
+							<div class="project-links">
+								<a href="https://github.com/Nagpritam/Automatic-Fruit-Detection-Seperation-Technology" target="_blank">GitHub</a>
+								<a href="https://www.youtube.com/watch?v=verMdASiuHo" target="_blank">YouTube</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		<!-- </div>
-	</div> -->
+			<!-- </div>
+		</div> -->
 
-      <div class="col-md-4 d-flex ftco-animate">
-      	<div class="blog-entry justify-content-end">
-          <a href="<https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API->" class="block-20 zoom-effect" style="background-image: url('images/NP_image_2.jpg');">
-          </a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="<https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API->">Identification of Trucks Models and potential risky drivers using Databricks Spark API</a></h3>
-            <p>Az National Trucking (ANT), a hypothetical company aims to mitigate risks associated with trucking operations by identifying drivers exhibiting high-risk behaviors. The organization seeks to ensure compliance with regulations, enhance safety measures, and reduce insurance risks.</p>
-			<div class="project-links">
-				<a href="<https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API->" target="_blank">GitHub</a>
-			</div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API-" class="block-20 zoom-effect" style="background-image: url('images/NP_image_2.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API-">Identification of Trucks Models and potential risky drivers using Databricks Spark API</a></h3>
+                <p>Az National Trucking (ANT), a hypothetical company aims to mitigate risks associated with trucking operations by identifying drivers exhibiting high-risk behaviors. The organization seeks to ensure compliance with regulations, enhance safety measures, and reduce insurance risks.</p>
+				<div class="project-links">
+					<a href="https://github.com/Nagpritam/Identification-of-Trucks-and-potential-risky-driver-using-Databricks-Spark-API-" target="_blank">GitHub</a>
+				</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack" class="block-20 zoom-effect" style="background-image: url('images/NP_image_3.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack">IMDb End-To-End Data Engineering Project</a></h3>
+                <p>In this project, we've developed a comprehensive data pipeline on Amazon Web Services (AWS) utilizing data extracted from IMDB via web scraping, specifically targeting the top 100 movies. The pipeline efficiently extracts a wide range of movie-related information, including titles, ratings, genres, director, and more, undergoes tailored transformations to ensure data integrity.</p>
+				<div class="project-links">
+					<a href="https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack" target="_blank">GitHub</a>
+				</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+	<br>
+		<!-- added justify-content-center to center align the last two projects -->
+		<div class="row d-flex justify-content-center">  
+			<div class="col-md-5 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s" class="block-20 zoom-effect" style="background-image: url('images/NP_image_4.jpg');">
+				</a>
+				<div class="text mt-3 float-right d-block">
+				  <h3 class="heading"><a href="https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s">Ecommerce Website REST API's using Flask, Flask-Smorest &amp; SQLAlchemy</a></h3>
+				  <p>This project aims to build a backend service using Python Flask API with Flask-Smorest, SQLAlchemy, Flask-JWT &amp; Deploying of the REST API's.</p>
+				  <div class="project-links">
+					<a href="https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s" target="_blank">GitHub</a>
+				</div>
+				</div>
+			  </div>
+			</div>
 
-      <div class="col-md-4 d-flex ftco-animate">
-      	<div class="blog-entry">
-          <a href="<https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack>" class="block-20 zoom-effect" style="background-image: url('images/NP_image_3.jpg');">
-          </a>
-          <div class="text mt-3 float-right d-block">
-            <h3 class="heading"><a href="<https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack>">IMDb End-To-End Data Engineering Project</a></h3>
-            <p>In this project, we've developed a comprehensive data pipeline on Amazon Web Services (AWS) utilizing data extracted from IMDB via web scraping, specifically targeting the top 100 movies. The pipeline efficiently extracts a wide range of movie-related information, including titles, ratings, genres, director, and more, undergoes tailored transformations to ensure data integrity.</p>
-			<div class="project-links">
-				<a href="<https://github.com/Nagpritam/IMDB-DE-End-to-End-Project-using-AWS-Data-Stack>" target="_blank">GitHub</a>
-			</div>
-          </div>
-        </div>
-      </div>
-    </div>
-<br>
-	<!-- added justify-content-center to center align the last two projects -->
-	<div class="row d-flex justify-content-center">
-		<div class="col-md-5 d-flex ftco-animate">
-			<div class="blog-entry justify-content-end">
-			<a href="<https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s>" class="block-20 zoom-effect" style="background-image: url('images/NP_image_4.jpg');">
-			</a>
-			<div class="text mt-3 float-right d-block">
-			  <h3 class="heading"><a href="<https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s>">Ecommerce Website REST API's using Flask, Flask-Smorest &amp; SQLAlchemy</a></h3>
-			  <p>This project aims to build a backend service using Python Flask API with Flask-Smorest, SQLAlchemy, Flask-JWT &amp; Deploying of the REST API's.</p>
-			  <div class="project-links">
-				<a href="<https://github.com/Nagpritam/Backend-Web-Application-Using-Flask-Smorest-API-s>" target="_blank">GitHub</a>
-			</div>
-			</div>
-		  </div>
-		</div>
 
-		<div class="col-md-5 d-flex ftco-animate">
-			<div class="blog-entry justify-content-end">
-			<a href="<https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148->" class="block-20 zoom-effect" style="background-image: url('images/NP_image_5.jpg');">
-			</a>
-			<div class="text mt-4 float-right d-block">
-			  <h3 class="heading"><a href="<https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148->"></a>Automated Teller Machine(ATM) ProtoType Using LPC-2148 Controller</h3>
-			  <p>This is a prototype machine designed from LPC 2148 ARM Cortex Development board, where the user with the account in the bank can withdraw, deposit & check his balance by entering the appropriate credentials. Various Sensors where interfaced with the LPC 2148 like Buzzer, Smoke detector, Force sensitive resistors(FSR's) to detect any malpractices involved.</p>
-			  <div class="project-links">
-				<a href="<https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148->" target="_blank">GitHub</a>
+			<div class="col-md-5 d-flex ftco-animate">
+				<div class="blog-entry justify-content-end">
+				<a href="https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148-" class="block-20 zoom-effect" style="background-image: url('images/NP_image_5.jpg');">
+				</a>
+				<div class="text mt-4 float-right d-block">
+				  <h3 class="heading"><a href="https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148-"></a>Automated Teller Machine(ATM) ProtoType Using LPC-2148 Controller</h3>
+				  <p>This is a prototype machine designed from LPC 2148 ARM Cortex Development board, where the user with the account in the bank can withdraw, deposit & check his balance by entering the appropriate credentials. Various Sensors where interfaced with the LPC 2148 like Buzzer, Smoke detector, Force sensitive resistors(FSR's) to detect any malpractices involved.</p>
+				  <div class="project-links">
+					<a href="https://github.com/Nagpritam/Automated-Teller-Machine-ProtoType-Using-LPC-2148-" target="_blank">GitHub</a>
+				</div>
+				</div>
+			  </div>
 			</div>
-			</div>
-		  </div>
-		</div>
 
 			<div class="col-md-5 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
@@ -1013,9 +896,9 @@ color: #04f0627b;
 			  </div>
 			</div>
 
-	 </div>
-  </div>
-</section>
+		 </div>
+	  </div>
+    </section>
 
 	<!-- <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
       <div class="container">
@@ -1130,37 +1013,36 @@ color: #04f0627b;
 </section>
 	
 <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-<div class="container">
-<div class="row justify-content-center mb-5 pb-3">
-<div class="col-md-7 heading-section text-center ftco-animate">
-<h1 class="big big-2">Contact</h1>
-<h2 class="mb-4">Contact Me</h2>
-<p>Below are the details to reach out to me!</p>
-</div>
-</div>
-
-```
-    <div class="row d-flex contact-info mb-5">
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-      	<div class="align-self-stretch box p-4 text-center">
-      		<div class="icon d-flex align-items-center justify-content-center">
-      			<span class="icon-map-signs"></span>
-      		</div>
-      		<h3 class="mb-4">Address</h3>
-            <p>Dallas, United States</p>
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
           </div>
-      </div>
+        </div>
 
-      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-      	<div class="align-self-stretch box p-4 text-center">
-      		<div class="icon d-flex align-items-center justify-content-center">
-				<span class="icon-linkedin"></span>
-      		</div>
-      		<h3 class="mb-4">LinkedIn</h3>
-            <p>
-				<a href="<https://www.linkedin.com/in/nagpritam-naik/>" target="_blank">LinkedIn URL</a></p>
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <p>Dallas, United States</p>
+	          </div>
           </div>
-      </div>
+
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+					<span class="icon-linkedin"></span>
+          		</div>
+          		<h3 class="mb-4">LinkedIn</h3>
+	            <p> 
+					<a href="https://www.linkedin.com/in/nagpritam-naik/" target="_blank">LinkedIn URL</a></p>
+	          </div>
+          </div>
 
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
           	<div class="align-self-stretch box p-4 text-center">
@@ -1220,143 +1102,24 @@ color: #04f0627b;
 	  </footer> --> 
 
 
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.animateNumber.min.js"></script>
-<script src="js/scrollax.min.js"></script>
 
-<script src="js/main.js"></script>
-
-<script>
-// Toggle timeline card expand/collapse
-function toggleTimeline(card) {
-var node = card.closest('.vtl-node');
-var toggle = card.querySelector('.vtl-toggle span');
-node.classList.toggle('expanded');
-toggle.textContent = node.classList.contains('expanded') ? 'Hide details' : 'Show details';
-}
-
-// Scroll-reveal for timeline nodes
-(function(){
-var observer = new IntersectionObserver(function(entries) {
-entries.forEach(function(entry) {
-if (entry.isIntersecting) {
-entry.target.classList.add('vtl-visible');
-}
-});
-}, { threshold: 0.15 });
-document.querySelectorAll('.vtl-node').forEach(function(node, i) {
-node.style.transitionDelay = (i * 0.1) + 's';
-observer.observe(node);
-});
-})();
-
-// Interactive Skills Cloud → Experience Card Filter
-function filterSkills(category) {
-document.querySelectorAll('.skill-cat-btn').forEach(function(btn) {
-btn.className = 'skill-cat-btn';
-if (btn.dataset.category === category) {
-btn.classList.add('active-' + category);
-}
-});
-
-```
-document.querySelectorAll('.skill-tag').forEach(function(tag) {
-  if (category === 'all' || tag.dataset.cat === category) {
-    tag.classList.remove('dimmed');
-  } else {
-    tag.classList.add('dimmed');
-  }
-});
-
-document.querySelectorAll('.vtl-node[data-categories]').forEach(function(card) {
-  card.classList.remove('dimmed-card', 'highlighted-card');
-  if (category === 'all') return;
-  var cats = card.dataset.categories.split(',');
-  if (cats.indexOf(category) !== -1) {
-    card.classList.add('highlighted-card');
-  } else {
-    card.classList.add('dimmed-card');
-  }
-});
-```
-
-}
-
-// Project Tech Stack Filter
-function filterProjects(tag, btn) {
-document.querySelectorAll('.proj-filter-btn').forEach(function(b){ b.classList.remove('active'); });
-btn.classList.add('active');
-document.querySelectorAll('.proj-card').forEach(function(card) {
-if (tag === 'all' || card.dataset.tags.split(',').indexOf(tag) !== -1) {
-card.classList.remove('proj-hidden');
-} else {
-card.classList.add('proj-hidden');
-}
-});
-}
-
-// Dark / Light Mode Toggle
-(function(){
-var saved = localStorage.getItem('theme');
-if (saved === 'light') document.body.classList.add('light-mode');
-})();
-function toggleTheme() {
-document.body.classList.toggle('light-mode');
-localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-}
-
-// Metrics Counter Animation (IntersectionObserver)
-(function(){
-var done = false;
-function go() {
-if (done) return;
-done = true;
-document.querySelectorAll('.metric-value').forEach(function(el) {
-var target = parseInt(el.dataset.target, 10);
-var dur = 1800, start = performance.now();
-function step(now) {
-var p = Math.min((now - start) / dur, 1);
-var ease = 1 - Math.pow(1 - p, 3);
-el.textContent = Math.floor(ease * target);
-if (p < 1) requestAnimationFrame(step);
-else el.textContent = target;
-}
-requestAnimationFrame(step);
-});
-}
-var row = document.querySelector('.metrics-row');
-if (row) {
-var obs = new IntersectionObserver(function(entries) {
-entries.forEach(function(e) { if (e.isIntersecting) { go(); obs.disconnect(); } });
-}, { threshold: 0.4 });
-obs.observe(row);
-}
-})();
-
-// Section Heading fade-in-up on scroll
-(function(){
-var headings = document.querySelectorAll('.heading-section');
-headings.forEach(function(h){ h.classList.add('section-fade-up'); });
-var obs = new IntersectionObserver(function(entries){
-entries.forEach(function(e){
-if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
-});
-},{ threshold: 0.15 });
-headings.forEach(function(h){ obs.observe(h); });
-})();
-</script>
-
-</body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>
